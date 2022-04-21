@@ -3,7 +3,7 @@ This repository contains the data and R (v.4.1.2) and WinBUGS (v.14) programs re
 
 The programs are as follows:
 - `rci_analysis.R` replicates all tables and figures in the paper and appendices, including running subsidiary `.bug` programs for the Bayesian analysis.
-- `india.0.bug` through `india.3.bug` which are subsidiary files called from the `rci_analysis.R`. These files simply need to be openned in WinBUGS (v.14) in oder to be called from the R script.
+- `india.0.bug` through `india.3.bug` which are subsidiary files called from `rci_analysis.R`. These files simply need to be openned in WinBUGS (v.14) in order to be called from the R script.
 
 The data are included in `rci_data.dta`, a Stata file imported by `rci_analysis.R`.
 
