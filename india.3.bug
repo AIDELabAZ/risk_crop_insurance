@@ -1,0 +1,50 @@
+## M3: vil_t, vil_id, tindex, VDSA_HH_id, parcel_id, with covariates
+
+
+model {
+  for (i in 1:n){
+    y[i] ~ dnorm (y.hat[i], tau.y)
+    y.hat[i] <- a[vil_t[i]] + d[vil_id[i]] + e[tindex[i]] + f[VDSA_HH_id[i]] + g[parcel_id[i]] + inprod(b[],x[i,])
+ }
+  
+for (l in 1:L){
+      b[l] ~ dnorm (0, .01)
+      }
+   tau.y <- pow(sigma.y, -2)
+   sigma.y ~ dunif (0, 10)
+
+  for (c in 1:C){
+    a[c] ~ dnorm (mu.a, tau.a)
+  }
+  mu.a ~ dnorm(0, .01)
+  tau.a <- pow(sigma.a, -2)
+  sigma.a ~ dunif (0, 10)
+
+  for (v in 1:V){
+    d[v] ~ dnorm (mu.d, tau.d)
+  }
+  mu.d ~ dnorm(0, .01)
+  tau.d <- pow(sigma.d, -2)
+  sigma.d ~ dunif (0, 10)
+
+  for (h in 1:H){
+    e[h] ~ dnorm (mu.e, tau.e)
+  }
+  mu.e ~ dnorm(0, .01)
+  tau.e <- pow(sigma.e, -2)
+  sigma.e ~ dunif (0, 10)
+
+  for (k in 1:K){
+    f[k] ~ dnorm (mu.f, tau.f)
+  }
+  mu.f ~ dnorm(0, .01)
+  tau.f <- pow(sigma.f, -2)
+  sigma.f ~ dunif (0, 10)
+
+  for (j in 1:J){
+    g[j] ~ dnorm (mu.g, tau.g)
+  }
+  mu.g ~ dnorm(0, .01)
+  tau.g <- pow(sigma.g, -2)
+  sigma.g ~ dunif (0, 10)
+}
